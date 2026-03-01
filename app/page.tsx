@@ -1,65 +1,59 @@
-import Image from "next/image";
+import Link from "next/link";
+import { Gamepad2, BookText, ArrowRight } from "lucide-react";
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+    <main className="min-h-screen bg-slate-950 text-white flex flex-col items-center">
+      {/* ヒーローセクション / 経営理念 */}
+      <section className="w-full max-w-4xl px-6 py-24 md:py-32 text-center">
+        <h1 className="text-sm font-mono text-blue-500 mb-4 tracking-widest uppercase">Management Philosophy</h1>
+        <h2 className="text-4xl md:text-6xl font-bold mb-8 leading-tight">
+          「問題の本質を理解し、解決する。<br className="hidden md:block" />
+          わかりやすく伝える」
+        </h2>
+        <p className="text-slate-400 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
+          ゲーム制作とWeb開発を通じて、複雑な技術を価値ある形に変換し、<br className="hidden md:block" />
+          お客様のビジョンを確実に具現化します。
+        </p>
+      </section>
+
+      {/* 誘導セクション（ゲーム & ブログ） */}
+      <section className="w-full max-w-5xl px-6 pb-24 grid md:grid-cols-2 gap-8">
+        {/* ゲームへのリンクカード */}
+        <Link href="/games" className="group p-8 bg-slate-900/50 border border-slate-800 rounded-3xl hover:border-blue-500 transition-all duration-300">
+          <div className="mb-6 flex items-center justify-between">
+            <div className="p-4 bg-blue-500/10 rounded-2xl">
+              <Gamepad2 className="w-8 h-8 text-blue-500" />
+            </div>
+            <ArrowRight className="w-6 h-6 text-slate-600 group-hover:text-blue-500 transition-colors" />
+          </div>
+          <h3 className="text-2xl font-bold mb-3">Games</h3>
+          <p className="text-slate-400 leading-relaxed">
+            UnityとC#を用いた自作ゲームを公開中。遊び心と技術の融合を体験してください。
           </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+        </Link>
+
+        {/* ブログへのリンクカード */}
+        <Link href="/blog" className="group p-8 bg-slate-900/50 border border-slate-800 rounded-3xl hover:border-blue-500 transition-all duration-300">
+          <div className="mb-6 flex items-center justify-between">
+            <div className="p-4 bg-blue-500/10 rounded-2xl">
+              <BookText className="w-8 h-8 text-blue-500" />
+            </div>
+            <ArrowRight className="w-6 h-6 text-slate-600 group-hover:text-blue-500 transition-colors" />
+          </div>
+          <h3 className="text-2xl font-bold mb-3">Blog</h3>
+          <p className="text-slate-400 leading-relaxed">
+            開発の裏側や技術的な学びを発信しています。最新の記事はこちらからご覧ください。
+          </p>
+        </Link>
+      </section>
+
+      {/* フッター代わりの導線 */}
+      <div className="pb-24">
+        <Link href="/contact" className="text-slate-500 hover:text-blue-400 transition-colors font-mono">
+          Ready to start a project? → Contact Me
+        </Link>
+      </div>
+    </main>
   );
 }

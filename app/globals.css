@@ -1,26 +1,28 @@
+/* app/globals.css */
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --background: #0f172a; /* 深い紺色 */
+  --foreground: #f8fafc; /*真っ白だと目が疲れるため、明るいグレー*/
 }
 
 body {
-  background: var(--background);
+  background-color: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+ /* ブラウザのデフォルト設定で文字が黒くなるのを防ぐ */
+  -webkit-font-smoothing: antialiased;
+}
+
+/* もし特定の場所で文字が消える場合は、明示的に色を指定 */
+h1, h2, h3, p, span, a {
+  color: #f8fafc;
+}
+
+/* リンクだけは青く光らせる（エンジニアっぽさ） */
+a {
+  color: #60a5fa;
+  text-decoration: none;
+}
+a:hover {
+  color: #93c5fd;
 }
