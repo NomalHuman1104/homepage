@@ -28,12 +28,11 @@ export default function RootLayout({
   return (
     <html lang="ja">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        {/*ナビゲーションメニュー: ServicesとProjectsを追加*/}
-        <nav className="flex justify-center gap-8 py-6 border-b border-slate-800">
+        <nav className="flex flex-wrap justify-center gap-x-4 gap-y-2 md:gap-8 py-6 border-b border-slate-800 px-4">
           <Link href="/" className="hover:text-blue-400 transition-colors">Home</Link>
           <Link href="/services" className="hover:text-blue-400 transition-colors">Services</Link>
           <Link href="/projects" className="hover:text-blue-400 transition-colors">Projects</Link>
-          <Link href="/games" className="hover:text-blue-400 transition-colors">Games</Link> 
+          <Link href="/games" className="hover:text-blue-400 transition-colors">Games</Link>
           <Link href="/blog" className="hover:text-blue-400 transition-colors">Blog</Link>
           <Link href="/contact" className="hover:text-blue-400 transition-colors">Contact</Link>
         </nav>
@@ -44,7 +43,7 @@ export default function RootLayout({
             © {new Date().getFullYear()} 大沼優之介 (よるじぇ) . All rights reserved.
           </p>
         </footer>
-        
+
       </body>
     </html>
   );
